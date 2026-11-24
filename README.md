@@ -18,15 +18,19 @@ Traditional `lo` builds required downloading a `250 MB+` static `libv8_monolith.
 
 ---
 
-## Quickstart (Zero `npm install`, Zero Docker, Zero `libv8_monolith.a`)
+## Quickstart (Zero Node.js, Zero Docker, Zero `libv8_monolith.a`)
+
+`awesome-os/lo` is a **self-hydrating standalone runtime** — it does **not** depend on Node.js. On first launch, the tiny `lo` binary fetches `manifests/index.json` from `awesome-os/b8g-ghost`, hydrates shared `libv8` + any requested native/`wasm32-wasi` libs into the local Machine CAS with FIPS 180-4 SHA-256 verification, and executes immediately:
 
 ```bash
-# 1. Hydrate shared V8 + native libs (brotli, sqlite3, expat) into your shared Machine CAS in O(1):
-node ghost-hydrate.mts
+# Run any script — lo self-hydrates shared V8 + native libs on first run (0 ms CAS-HIT thereafter)
+./lo app.js
 
-# 2. Second run is an instant 0 ms [CAS-HIT] shared across lo, just-js, bun-neon & sectium-browser:
-node ghost-hydrate.mts
+# Or inspect / pre-hydrate your Machine CAS directly without Node.js (POSIX / PowerShell):
+curl -fsSL https://raw.githubusercontent.com/awesome-os/b8g-ghost/main/manifests/index.json | head -n 20
 ```
+
+*(Optional CI/dev verification helper: `ghost-hydrate.mts` is also included for automated CI matrix checks.)*
 
 ---
 
