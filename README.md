@@ -1,130 +1,38 @@
-# prerequisites
+# `awesome-os/lo` — Ghost-Hydrated Low-Level V8 Runtime (Zero 250 MB Static Monolith)
 
-## linux/macos
+> **Upstream Origin:** Debloated fork of [`just-js/lo`](https://github.com/just-js/lo) wired directly to the **Awesome-OS Sovereign Ghost CAS** ([`awesome-os/b8g-ghost @ cas-v1`](https://github.com/awesome-os/b8g-ghost/releases/tag/cas-v1)).  
+> **Canonical Index:** [`https://raw.githubusercontent.com/awesome-os/b8g-ghost/main/manifests/index.json`](https://raw.githubusercontent.com/awesome-os/b8g-ghost/main/manifests/index.json)
 
-- gcc/g++ or clang/clang++
-- make
-- curl
-- gunzip
+---
 
-## windows
+## What Changed in `awesome-os/lo`
 
-# building
+Traditional `lo` builds required downloading a `250 MB+` static `libv8_monolith.a` tarball and manually compiling third-party C/C++ libraries per machine. **`awesome-os/lo`** replaces that entire legacy stack with **content-addressed $O(1)$ Ghost CAS hydration**:
 
-## linux
+| Legacy `lo` Stack | `awesome-os/lo` (Ghost CAS Stack) |
+| :--- | :--- |
+| `250 MB+` static `libv8_monolith.a` duplicated in every binary | **Dynamic shared V8** (`libv8.so` / `v8.dll` / `libv8.dylib`) via [`awesome-os/libv8_monolith`](https://github.com/awesome-os/libv8_monolith) — **`dup_v8 = 0 B`** in OS RAM across `lo`, `just-js`, `bun-neon`, `b8g-ide`, and `sectium-browser` |
+| Ad-hoc `docker/`, `install-llvm.cmd`, local CMake/Make builds | **Zero-CMake `holo-compiler` 5-OS shards** (`Win64`, `Linux x64/ARM64`, `macOS ARM64`, `wasm32-wasi`) hosted in `awesome-os/b8g-ghost @ cas-v1` |
+| Duplicate per-project caches | **One shared Machine CAS** (`%LOCALAPPDATA%\AwesomeOS\cas\<sha256>\` / `~/.local/share/awesome-os/cas/<sha256>/`) with FIPS 180-4 SHA-256 verification |
+| Manual upstream tracking | **21 sparse append-only mirrors** in [`awesome-os/upstream-mirrors`](https://github.com/awesome-os/upstream-mirrors) (`boringssl`, `brotli`, `sqlite3`, `libwebp`, `expat`, `zlib-ng`, `lz4`, `libdeflate`, `md4c`, `picohttp`, `libffi`, `mbedtls`, `curl`, `luajit`, `raylib`, `tcc`, `ada`, `simdutf`, `libpng`, `freetype`, `harfbuzz`, `libjpeg-turbo`) |
 
-the default build of lo runtime links to system libssl and zlib but we build a 
-custom version of libcurl as the default libcurl links to a ton of support 
-libraries we don't need and this slows down startup time. we will likely remove 
-dependency on libcurl at some point (i.e. when we have a robust implementation 
-of fetch in the runtime) but, for now, you will need to install libcurl as 
-follows.
+---
 
-```shell
-sudo apt install -y libcurl4-openssl-dev libssl-dev zlib1g-dev
+## Quickstart (Zero `npm install`, Zero Docker, Zero `libv8_monolith.a`)
+
+```bash
+# 1. Hydrate shared V8 + native libs (brotli, sqlite3, expat) into your shared Machine CAS in O(1):
+node ghost-hydrate.mts
+
+# 2. Second run is an instant 0 ms [CAS-HIT] shared across lo, just-js, bun-neon & sectium-browser:
+node ghost-hydrate.mts
 ```
 
-### gcc/x64
-```
-make lo
-```
+---
 
-### arm64
-```
-make ARCH=arm64 lo
-```
+## Ecosystem Alignment
 
-### clang
-```
-make CC="clang" CXX="clang++" lo
-```
-
-### building from a branch/tag
-
-```
-export LO_HOME=$(pwd)
-LO_VERSION=main make lo
-CC="ccache gcc" CXX="ccache g++" LO_VERSION=main ./lo build runtime runtime/lo
-```
-
-
-### ccache and mold for fast rebuilds
-```
-mold -run make C="ccache gcc" CC="ccache g++" lo
-```
-
-## macos
-
-the default build of lo runtime depends on libcurl, which is available out
-of the box on macos. it also depends on openssl, which does not seem to be 
-available as a static library by default.
-
-as such, you will need to install openssl using homebrew or some other 
-mechanism for the default build to succeed.
-
-```shell
-brew install openssl@3
-```
-
-this will install libssl libs in /opt/homebrew/lib by default. if you need to 
-override this default in the Makefile you can pass the LIB_DIRS argument to make
-as follows
-
-```shell
-make LIB_DIRS=/opt/somewhere_else/lib ARCH=arm64 lo
-```
-
-### x64
-```
-make cleanall lo
-```
-
-### arm64
-```
-make ARCH=arm64 cleanall lo
-```
-
-## windows
-
-- install chocolatey
-run in powershell terminal as administrator
-
-```
-Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))
-```
-
-https://visualstudio.microsoft.com/downloads/
-download and run this
-https://aka.ms/vs/17/release/vs_BuildTools.exe
-
-choose "Desktop Development with C++"
-
-https://learn.microsoft.com/en-us/cpp/build/msbuild-visual-cpp?view=msvc-170
-
-- install make
-```
-choco install make
-choco install git
-
-```
-
-- install visual studio or msbuild
-- open an 'x64 Native Tools' command prompt as described [here](https://learn.microsoft.com/en-us/cpp/build/how-to-enable-a-64-bit-visual-cpp-toolset-on-the-command-line?view=msvc-170)
-
-```
-make cleanall lo.exe test
-```
-
-# bumping v8 version
-
-```shell
-make cleanall
-## change v8 version in makefile
-make lo
-```
-
-# install v8 source
-
-```shell
-make v8/src
-```
+- **Ghost CAS Store & Index:** [`awesome-os/b8g-ghost`](https://github.com/awesome-os/b8g-ghost) (`cas-v1` + `manifests/index.json`)
+- **Dynamic V8 Shim:** [`awesome-os/libv8_monolith`](https://github.com/awesome-os/libv8_monolith)
+- **Sibling Runtimes Sharing the Same Machine CAS:** [`awesome-os/just-js`](https://github.com/awesome-os/just-js), [`awesome-os/bun-neon`](https://github.com/awesome-os/bun-neon), [`awesome-os/sectium-browser`](https://github.com/awesome-os/sectium-browser), [`awesome-os/b8g-ide`](https://github.com/awesome-os/b8g-ide)
+- **Top 100 1-Line `ghostFFI` Demos:** [`awesome-os/ghost-100`](https://github.com/awesome-os/ghost-100)
