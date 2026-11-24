@@ -41,7 +41,7 @@ static void print_version(void) {
 
 static void print_help(const char *argv0) {
   printf(
-      "awesome-os/lo v%s (%s) — Ghost-Hydrated V8 Runtime Launcher\n"
+      "awesome-os/lo v%s (%s) - Ghost-Hydrated V8 Runtime Launcher\n"
       "\n"
       "Usage:\n"
       "  %s --version              Print version and target triple\n"
