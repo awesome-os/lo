@@ -12,6 +12,7 @@ Traditional `lo` builds required downloading a `250 MB+` static `libv8_monolith.
 | Legacy `lo` Stack | `awesome-os/lo` (Ghost CAS Stack) |
 | :--- | :--- |
 | `250 MB+` static `libv8_monolith.a` duplicated in every binary | **Dynamic shared V8** (`libv8.so` / `v8.dll` / `libv8.dylib`) via [`awesome-os/libv8_monolith`](https://github.com/awesome-os/libv8_monolith) — **`dup_v8 = 0 B`** in OS RAM across `lo`, `just-js`, `bun-neon`, `b8g-ide`, and `sectium-browser` |
+| External `tsc` / non-programmable native strippers | **Built-in Programmable TypeScript 6.0.3 Compiler (`typescript-6.0.3-programmable.tar.gz`, `1.76 MB` in `cas-v1`)** — full `ts.createProgram` / `ts.transpileModule` / AST API running natively inside `lo`'s V8 engine |
 | Ad-hoc `docker/`, `install-llvm.cmd`, local CMake/Make builds | **Zero-CMake `holo-compiler` 5-OS shards** (`Win64`, `Linux x64/ARM64`, `macOS ARM64`, `wasm32-wasi`) hosted in `awesome-os/b8g-ghost @ cas-v1` |
 | Duplicate per-project caches | **One shared Machine CAS** (`%LOCALAPPDATA%\AwesomeOS\cas\<sha256>\` / `~/.local/share/awesome-os/cas/<sha256>/`) with FIPS 180-4 SHA-256 verification |
 | Manual upstream tracking | **21 sparse append-only mirrors** in [`awesome-os/upstream-mirrors`](https://github.com/awesome-os/upstream-mirrors) (`boringssl`, `brotli`, `sqlite3`, `libwebp`, `expat`, `zlib-ng`, `lz4`, `libdeflate`, `md4c`, `picohttp`, `libffi`, `mbedtls`, `curl`, `luajit`, `raylib`, `tcc`, `ada`, `simdutf`, `libpng`, `freetype`, `harfbuzz`, `libjpeg-turbo`) |

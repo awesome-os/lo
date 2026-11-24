@@ -24,8 +24,8 @@ const idx = (await (await fetch(GHOST_INDEX_URL)).json()) as {
 
 const isWin = process.platform === 'win32';
 const deps = isWin
-  ? ['v8-shared-win64.zip', 'libbrotli-win64.dll', 'libsqlite3-win64.dll', 'libexpat-win64.dll']
-  : ['v8-shared-linux-x64.tar.gz', 'libbrotli-linux-x64.so', 'libsqlite3-linux-x64.so', 'libexpat-linux-x64.so'];
+  ? ['v8-shared-win64.zip', 'typescript-6.0.3-programmable.tar.gz', 'libbrotli-win64.dll', 'libsqlite3-win64.dll', 'libexpat-win64.dll']
+  : ['v8-shared-linux-x64.tar.gz', 'typescript-6.0.3-programmable.tar.gz', 'libbrotli-linux-x64.so', 'libsqlite3-linux-x64.so', 'libexpat-linux-x64.so'];
 
 console.log(`[ghost-hydrate] Connected to ${idx.schema} (${idx.total_entries} canonical cas-v1 assets)`);
 
