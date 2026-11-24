@@ -23,7 +23,8 @@ Traditional `lo` builds required downloading a `250 MB+` static `libv8_monolith.
 `awesome-os/lo` is a **self-hydrating standalone runtime** — it does **not** depend on Node.js. On first launch, the tiny `lo` binary fetches `manifests/index.json` from `awesome-os/b8g-ghost`, hydrates shared `libv8` + any requested native/`wasm32-wasi` libs into the local Machine CAS with FIPS 180-4 SHA-256 verification, and executes immediately:
 
 ```bash
-# Run any script — lo self-hydrates shared V8 + native libs on first run (0 ms CAS-HIT thereafter)
+# Run any JS or Erasable TypeScript file directly — zero tsc/webpack, zero Node.js!
+./lo app.ts
 ./lo app.js
 
 # Or inspect / pre-hydrate your Machine CAS directly without Node.js (POSIX / PowerShell):
