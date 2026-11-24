@@ -12,6 +12,8 @@
 #include <string.h>
 
 #if defined(_WIN32)
+#define WIN32_LEAN_AND_MEAN
+#include <windows.h>
 #include <process.h>
 #else
 #include <unistd.h>
@@ -60,9 +62,21 @@ static void print_help(const char *argv0) {
 
 static int delegate_node(int extra_argc, char **extra_argv, const char *default_script) {
   const char *runtime = getenv("LO_JS_RUNTIME");
+#if defined(_WIN32)
+  char resolved_runtime[1024];
+  if (runtime == NULL || runtime[0] == '\0') {
+    /* Honor PATHEXT (.cmd shims like bin\node.cmd) before raw .exe so b8g_node doesn't shadow Node 22+ */
+    if (SearchPathA(NULL, "node", ".cmd", (DWORD)sizeof(resolved_runtime), resolved_runtime, NULL) > 0) {
+      runtime = resolved_runtime;
+    } else {
+      runtime = "node";
+    }
+  }
+#else
   if (runtime == NULL || runtime[0] == '\0') {
     runtime = "node";
   }
+#endif
 
   int count = (default_script != NULL ? 2 : 1) + extra_argc;
   const char **args = (const char **)malloc((size_t)(count + 1) * sizeof(const char *));
