@@ -1,0 +1,17 @@
+name: CI — awesome-os/lo (Ghost CAS Dynamic V8 + Native Libs)
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  verify-lo-ghost-deps:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Hydrate Dynamic V8 + Native Shards from Canonical O(1) Ghost CAS (cas-v1)
+        run: node ghost-hydrate.mts
