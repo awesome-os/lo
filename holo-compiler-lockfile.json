@@ -1,0 +1,159 @@
+{
+  "schema": "holo-compiler-lockfile-v1",
+  "abiMagic": "0x33564742",
+  "casLayout": "v11",
+  "repo": "awesome-os/lo",
+  "targets": [
+    "linux-arm64",
+    "linux-x64",
+    "macos-arm64",
+    "win64"
+  ],
+  "generatedAt": "2026-11-24T23:53:02.473Z",
+  "dependencies": [
+    {
+      "id": "awesome-os/lo/install.ps1",
+      "kind": "object",
+      "version": "v0.2.0",
+      "target": "win64",
+      "sha512": "8a136e1b9065213f81fdca3378456cb7881964e91365a90403ee5302e5a5a1e7f5bb80a899c6b73d4ff307d7cb662524f2e540e41ae5704b6ddd075b796fe37c",
+      "size": 342,
+      "executable": false,
+      "blob": "v11/files/8a/8a136e1b9065213f81fdca3378456cb7881964e91365a90403ee5302e5a5a1e7f5bb80a899c6b73d4ff307d7cb662524f2e540e41ae5704b6ddd075b796fe37c",
+      "url": "https://github.com/awesome-os/lo/releases/download/v0.2.0/install.ps1",
+      "dependencies": []
+    },
+    {
+      "id": "awesome-os/lo/install.sh",
+      "kind": "object",
+      "version": "v0.2.0",
+      "target": "any",
+      "sha512": "ba5699261545834b02787b9dce84d8a264ce203b7bb7cc49cd345d6989e1df264c9e0ec47c558fa050573cce8bcec433aa0ad027861e771143b51b54f54649ce",
+      "size": 509,
+      "executable": true,
+      "blob": "v11/files/ba/ba5699261545834b02787b9dce84d8a264ce203b7bb7cc49cd345d6989e1df264c9e0ec47c558fa050573cce8bcec433aa0ad027861e771143b51b54f54649ce-exec",
+      "url": "https://github.com/awesome-os/lo/releases/download/v0.2.0/install.sh",
+      "dependencies": []
+    },
+    {
+      "id": "awesome-os/lo/lo-linux-arm64",
+      "kind": "ghost-launcher",
+      "version": "v0.1.0",
+      "target": "linux-arm64",
+      "sha512": "422c366091f40e45c7d01cea9cb193c4c4dcaf5126cf777fef0f5c87df3daea294f8bb4b40c4b562530b8dd19fde6ec62d7e767b208ec97916fe4aba053438ca",
+      "size": 34040,
+      "executable": true,
+      "blob": "v11/files/42/422c366091f40e45c7d01cea9cb193c4c4dcaf5126cf777fef0f5c87df3daea294f8bb4b40c4b562530b8dd19fde6ec62d7e767b208ec97916fe4aba053438ca-exec",
+      "url": "https://github.com/awesome-os/lo/releases/download/v0.1.0/lo-linux-arm64",
+      "dependencies": []
+    },
+    {
+      "id": "awesome-os/lo/lo-linux-arm64",
+      "kind": "bin",
+      "version": "v0.2.0",
+      "target": "linux-arm64",
+      "sha512": "e64d24a1c9a8c978ac704ead70b3e147b3f415ad65aac72b4f97cb8949d52e616031342e484bc17b7b5634cecd77b5097c7d5a502966b973633151467d502938",
+      "size": 1047624,
+      "executable": true,
+      "blob": "v11/files/e6/e64d24a1c9a8c978ac704ead70b3e147b3f415ad65aac72b4f97cb8949d52e616031342e484bc17b7b5634cecd77b5097c7d5a502966b973633151467d502938-exec",
+      "url": "https://github.com/awesome-os/lo/releases/download/v0.2.0/lo-linux-arm64",
+      "dependencies": []
+    },
+    {
+      "id": "awesome-os/lo/lo-linux-x64",
+      "kind": "ghost-launcher",
+      "version": "v0.1.0",
+      "target": "linux-x64",
+      "sha512": "d7911ea1cd04186eacd4e86f13a142322db694b2b2278e619d8eae5c829aeae5e77d798dfb0a34c3ce8effdb0d22f1cf317b275740f10ca521c7c0d2aee070a7",
+      "size": 27608,
+      "executable": true,
+      "blob": "v11/files/d7/d7911ea1cd04186eacd4e86f13a142322db694b2b2278e619d8eae5c829aeae5e77d798dfb0a34c3ce8effdb0d22f1cf317b275740f10ca521c7c0d2aee070a7-exec",
+      "url": "https://github.com/awesome-os/lo/releases/download/v0.1.0/lo-linux-x64",
+      "dependencies": []
+    },
+    {
+      "id": "awesome-os/lo/lo-linux-x64",
+      "kind": "bin",
+      "version": "v0.2.0",
+      "target": "linux-x64",
+      "sha512": "c403bd4947ae34cd3886ed01d28afe76acd1eee9527b80e9036481cd78ff4fd8da8a6aaa2c98134efe0e0382e0154811dcbdb4b9572b7739eeeafb1d435e7a5a",
+      "size": 1000896,
+      "executable": true,
+      "blob": "v11/files/c4/c403bd4947ae34cd3886ed01d28afe76acd1eee9527b80e9036481cd78ff4fd8da8a6aaa2c98134efe0e0382e0154811dcbdb4b9572b7739eeeafb1d435e7a5a-exec",
+      "url": "https://github.com/awesome-os/lo/releases/download/v0.2.0/lo-linux-x64",
+      "dependencies": []
+    },
+    {
+      "id": "awesome-os/lo/lo-macos-arm64",
+      "kind": "ghost-launcher",
+      "version": "v0.1.0",
+      "target": "macos-arm64",
+      "sha512": "4cf6c8805e5b103d5048d7da0d4a4812d5d3c969714f35b980328032614760e0149d38132de90234f94bc4199b360f99fe6fd4638e9e185e17cdc8b8a4c5a196",
+      "size": 50528,
+      "executable": true,
+      "blob": "v11/files/4c/4cf6c8805e5b103d5048d7da0d4a4812d5d3c969714f35b980328032614760e0149d38132de90234f94bc4199b360f99fe6fd4638e9e185e17cdc8b8a4c5a196-exec",
+      "url": "https://github.com/awesome-os/lo/releases/download/v0.1.0/lo-macos-arm64",
+      "dependencies": []
+    },
+    {
+      "id": "awesome-os/lo/lo-macos-arm64",
+      "kind": "ghost-launcher",
+      "version": "v0.2.0",
+      "target": "macos-arm64",
+      "sha512": "27b8a462b7fcb41d81f7229c4f54e0afe41c05503939244b0710a5d1961ffe02a1b62f0e430902dc6c810cce3f72ffebfe01420244952d471bd8b05a19bea6f0",
+      "size": 50832,
+      "executable": true,
+      "blob": "v11/files/27/27b8a462b7fcb41d81f7229c4f54e0afe41c05503939244b0710a5d1961ffe02a1b62f0e430902dc6c810cce3f72ffebfe01420244952d471bd8b05a19bea6f0-exec",
+      "url": "https://github.com/awesome-os/lo/releases/download/v0.2.0/lo-macos-arm64",
+      "dependencies": []
+    },
+    {
+      "id": "awesome-os/lo/lo.exe",
+      "kind": "ghost-launcher",
+      "version": "v0.1.0",
+      "target": "win64",
+      "sha512": "2a0ef835abaf740e16b63086ad2496e49b8661b138e36130830c21ee2bce82ad4dec2b81b56e98e5b33f672a086c92e78f19d305d295065a1acaa84bef9e5d39",
+      "size": 19968,
+      "executable": true,
+      "blob": "v11/files/2a/2a0ef835abaf740e16b63086ad2496e49b8661b138e36130830c21ee2bce82ad4dec2b81b56e98e5b33f672a086c92e78f19d305d295065a1acaa84bef9e5d39-exec",
+      "url": "https://github.com/awesome-os/lo/releases/download/v0.1.0/lo.exe",
+      "dependencies": []
+    },
+    {
+      "id": "awesome-os/lo/lo.exe",
+      "kind": "ghost-launcher",
+      "version": "v0.2.0",
+      "target": "win64",
+      "sha512": "afb9bcfc1daf49736deb2b7d259890eee10bdf2fe856cd1d8129d57bf207377b1123c479afbe2680e1b94accedfa28a0796290033dfdf4113cc7592afe9b2db9",
+      "size": 176128,
+      "executable": true,
+      "blob": "v11/files/af/afb9bcfc1daf49736deb2b7d259890eee10bdf2fe856cd1d8129d57bf207377b1123c479afbe2680e1b94accedfa28a0796290033dfdf4113cc7592afe9b2db9-exec",
+      "url": "https://github.com/awesome-os/lo/releases/download/v0.2.0/lo.exe",
+      "dependencies": []
+    },
+    {
+      "id": "awesome-os/lo/lo.pdb",
+      "kind": "object",
+      "version": "v0.2.0",
+      "target": "win64",
+      "sha512": "414318baa5745b9b17a0cd369b36c562edbcdf1746574e534c27106b8bdede9e29610efda4f01e01b2586c0beb1877f88d5383f38863da3e997bb57d99173cf7",
+      "size": 1130496,
+      "executable": false,
+      "blob": "v11/files/41/414318baa5745b9b17a0cd369b36c562edbcdf1746574e534c27106b8bdede9e29610efda4f01e01b2586c0beb1877f88d5383f38863da3e997bb57d99173cf7",
+      "url": "https://github.com/awesome-os/lo/releases/download/v0.2.0/lo.pdb",
+      "dependencies": []
+    },
+    {
+      "id": "awesome-os/lo/SHA256SUMS.txt",
+      "kind": "object",
+      "version": "v0.2.0",
+      "target": "any",
+      "sha512": "e66aff139146b8a63e2b0edfbafd9d1863bf100fbb603189b0991d166fcfe1bee36999b92267d8586445303d65239fc5d2a04c4efe32cc74359a5b7fcfd42fee",
+      "size": 542,
+      "executable": false,
+      "blob": "v11/files/e6/e66aff139146b8a63e2b0edfbafd9d1863bf100fbb603189b0991d166fcfe1bee36999b92267d8586445303d65239fc5d2a04c4efe32cc74359a5b7fcfd42fee",
+      "url": "https://github.com/awesome-os/lo/releases/download/v0.2.0/SHA256SUMS.txt",
+      "dependencies": []
+    }
+  ]
+}
