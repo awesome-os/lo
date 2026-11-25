@@ -67,3 +67,13 @@ Prebuilt 4-OS native launchers (`lo.exe`, `lo-linux-x64`, `lo-linux-arm64`, `lo-
 - **Dynamic V8 Shim:** [`awesome-os/libv8_monolith`](https://github.com/awesome-os/libv8_monolith)
 - **Sibling Runtimes Sharing the Same Machine CAS:** [`awesome-os/just-js`](https://github.com/awesome-os/just-js), [`awesome-os/bun-neon`](https://github.com/awesome-os/bun-neon), [`awesome-os/sectium-browser`](https://github.com/awesome-os/sectium-browser), [`awesome-os/b8g-ide`](https://github.com/awesome-os/b8g-ide)
 - **Top 100 1-Line `ghostFFI` Demos:** [`awesome-os/ghost-100`](https://github.com/awesome-os/ghost-100)
+
+## Quick Install & Run (Windows / Linux / macOS)
+
+```sh
+# Install / hydrate from v11 CAS via holo-pm
+holo-pm install repository://github.com/awesome-os/lo@main
+
+# Or project & run directly via holo-project (0-byte hardlink)
+holo-project "project://cpp/lo?from=repository://github.com/awesome-os/lo@main"
+```
