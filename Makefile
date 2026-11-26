@@ -23,7 +23,7 @@ ifeq ($(MUSL),1)
 endif
 OPT=-O3
 VERSION=0.0.37-awesome
-V8_VERSION ?= 15.8
+V8_VERSION ?= latest
 V8_REPO ?= https://github.com/awesome-os/libv8_monolith/releases/latest/download
 B8G_CAS_DIR ?= $(HOME)/.b8g/cas/v11
 RUNTIME=lo

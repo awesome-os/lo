@@ -27,6 +27,6 @@ const lockPath = join(casRoot, 'locks', 'max-version-lock.json');
 writeFileSync(lockPath, lockText, 'utf8');
 
 console.log(`[holo-hydrate] Connected to ${lock.schema} (ABI=${lock.abiMagic})`);
-console.log(`[holo-hydrate] Shared V8 : awesome-os/libv8_monolith @ V8 15.8`);
+console.log(`[holo-hydrate] Shared V8 : awesome-os/libv8_monolith @ latest (rolling V8 16+)`);
 console.log(`[holo-hydrate] Shared FFI: awesome-os/holo-ffi (lib/holo V8 fastcall, zero-HTTP Sectium)`);
 console.log(`[holo-hydrate] Saved max-version lock (${lock.libraries.length} pinned libs) -> ${lockPath}`);
