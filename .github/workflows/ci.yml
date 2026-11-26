@@ -13,7 +13,7 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
-      - name: Hydrate Dynamic V8 + Native Shards from Canonical O(1) Ghost CAS (cas-v1)
+      - name: Hydrate Dynamic V8 + Native Shards from Holo v11 CAS (awesome-os/chromium-baseline + awesome-os/holo-v11)
         run: node ghost-hydrate.mts
-      - name: Verify Ghost CAS Quickstart (149+ entries, 35/35 5-OS shards, Wave 2 TS 6.0.3, 4-OS ABI)
+      - name: Verify Holo v11 CAS Quickstart (149+ entries, 35/35 5-OS shards, Wave 2 TS 6.0.3, 4-OS ABI)
         run: node examples/ghost-cas-quickstart.mts
