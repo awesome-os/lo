@@ -1,4 +1,4 @@
-name: CI — awesome-os/lo (Ghost CAS Dynamic V8 + Native Libs)
+name: CI — awesome-os/lo (Holo v11 CAS + HoloFFI Dynamic V8 16+)
 
 on:
   push:
