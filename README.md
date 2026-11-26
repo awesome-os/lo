@@ -4,7 +4,7 @@
 
 ## Highlights
 
-- **Shared V8 (`dup_v8 = 0 B`):** Dynamically binds shared `libv8` via [`awesome-os/libv8_monolith`](https://github.com/awesome-os/libv8_monolith) instead of embedding a `250 MB` static `libv8_monolith.a`.
+- **Shared V8 (`dup_v8 = 0 B`):** Dynamically binds shared `libv8` via [`awesome-os/chromium-baseline`](https://github.com/awesome-os/chromium-baseline/tree/main/components/libv8_monolith) (`components/libv8_monolith` & `components/just-js/lo`) instead of embedding a `250 MB` static `libv8_monolith.a`.
 - **Direct Erasable TypeScript Execution:** Runs `.ts` / `.mts` and `.js` directly with zero `tsc` / `webpack` build steps.
 - **4-OS Native Launcher (`src/lo_launcher.c`):** Prebuilt `lo.exe`, `lo-linux-x64`, `lo-linux-arm64`, and `lo-macos-arm64` cross-compiled via `zig cc`.
 - **Unified `Holo v11` CAS:** Shares `~/.b8g/cas/v11` via 0-byte hardlinks with [`awesome-os/awesome-os`](https://github.com/awesome-os/awesome-os) and [`awesome-os/sectium-browser`](https://github.com/awesome-os/sectium-browser).

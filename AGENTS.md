@@ -2,10 +2,10 @@
 
 Notes for coding agents working in `awesome-os/lo`. See `README.md` for user-facing docs.
 
-## Awesome-OS Ghost CAS Stack
+## Awesome-OS Holo `v11` CAS Stack
 
-- **Canonical CAS Index:** `https://raw.githubusercontent.com/awesome-os/b8g-ghost/main/manifests/index.json` (`149+` verified `cas-v1` entries, Keep-Last-5 retention).
-- **Dynamic Shared V8:** Replaces the legacy `250 MB+` static `libv8_monolith.a` with shared `libv8` + `35/35` 5-OS C/Wasm shards (`libbrotli`, `liblz4`, `libsqlite3`, `libwebp`, `libexpat`, `libmd4c`, `libpicohttp`), `typescript-6.0.3-programmable.tar.gz` (Wave 2), and 4-OS zero-`node-gyp` `b8g-ghost-abi.node` addons.
+- **Canonical CAS Index:** `https://raw.githubusercontent.com/awesome-os/holo-v11/main/index/holo-compiler-lockfile.json` (`B8G_ABI_MAGIC_V3 = 0x33564742`, unified `v11` SHA-512 store).
+- **Dynamic Shared V8:** Replaces the legacy `250 MB+` static `libv8_monolith.a` with shared `libv8` from [`awesome-os/chromium-baseline`](https://github.com/awesome-os/chromium-baseline) + shared `v11` C/Wasm shards (`libbrotli`, `liblz4`, `libsqlite3`, `libwebp`, `libexpat`, `libmd4c`, `libpicohttp`), `typescript` `6.0.3`, and zero-`node-gyp` `holo-ffi` / `v11` CAS addons.
 - **Zero-Dependency Native Launcher:** [`src/lo_launcher.c`](src/lo_launcher.c) cross-compiles via `zig cc` to `dist/` (gitignored) for Win64, Linux x64/ARM64 (static musl), and macOS ARM64.
 - **Verification Entrypoints:** Run `ghost-hydrate.mts` and `examples/ghost-cas-quickstart.mts` using erasable TypeScript (`erasableSyntaxOnly: true`).
 - **Container:** `ghcr.io/awesome-os/t2linux:latest` (multi-arch `2.1 MB`).
