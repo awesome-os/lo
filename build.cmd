@@ -1,6 +1,7 @@
 @echo off
-set VERSION=0.0.37-pre
-set V8=15.6
+set VERSION=0.0.37-awesome
+set V8=15.8
+set V8_REPO=https://github.com/awesome-os/libv8_monolith/releases/latest/download
 set RUNTIME=lo
 rem V8_COMPRESS_POINTERS must match repos/v8's own v8_enable_pointer_compression
 rem (all 6 args.*.gn platform files) or V8::Initialize() hard-aborts with

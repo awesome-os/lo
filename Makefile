@@ -22,8 +22,10 @@ ifeq ($(MUSL),1)
 	CARGS+=--sysroot=$(MUSL_SYSROOT) -D_LARGEFILE64_SOURCE
 endif
 OPT=-O3
-VERSION=0.0.37-pre
-V8_VERSION=15.6
+VERSION=0.0.37-awesome
+V8_VERSION ?= 15.8
+V8_REPO ?= https://github.com/awesome-os/libv8_monolith/releases/latest/download
+B8G_CAS_DIR ?= $(HOME)/.b8g/cas/v11
 RUNTIME=lo
 LO_HOME=$(shell pwd)
 BINDINGS=core.o inflate.a curl.o system.o
@@ -93,8 +95,8 @@ v8/.stamp:
 	mkdir -p v8
 	touch v8/.stamp
 
-v8/include/.stamp: | v8/.stamp ## download the v8 source code for debugging
-	curl -L -O https://github.com/just-js/v8/releases/download/${V8_VERSION}/include.tar.gz
+v8/include/.stamp: | v8/.stamp ## hydrate v8 headers from awesome-os/libv8_monolith (v11 CAS)
+	curl -fsSL -O ${V8_REPO}/include.tar.gz
 	tar -xvf include.tar.gz
 	rm -rf v8/include
 	mv include v8/
@@ -103,8 +105,8 @@ ifneq ($(os),win)
 	rm -f include.tar.gz
 endif
 
-v8/src/.stamp: | v8/.stamp ## download the v8 source code for debugging
-	curl -L -O https://github.com/just-js/v8/releases/download/${V8_VERSION}/src.tar.gz
+v8/src/.stamp: | v8/.stamp ## hydrate v8 source for debugging
+	curl -fsSL -O ${V8_REPO}/src.tar.gz
 	tar -xvf src.tar.gz
 	rm -rf v8/src
 	mv src v8/
@@ -113,8 +115,8 @@ ifneq ($(os),win)
 	rm -f src.tar.gz
 endif
 
-v8/libv8_monolith.a: | v8/include/.stamp  ## download the v8 static libary for linux/macos
-	curl -C - -L -o v8/libv8_monolith.a.gz https://github.com/just-js/v8/releases/download/${V8_VERSION}/libv8_monolith-${os}-${ARCH}.a.gz
+v8/libv8_monolith.a: | v8/include/.stamp  ## hydrate shared libv8_monolith from awesome-os/libv8_monolith (V8 15.8)
+	curl -C - -fsSL -o v8/libv8_monolith.a.gz ${V8_REPO}/libv8_monolith-${os}-${ARCH}.a.gz
 	gzip -df v8/libv8_monolith.a.gz
 	touch v8/libv8_monolith.a
 	rm -f v8/libv8_monolith.a.gz
