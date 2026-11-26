@@ -1,0 +1,15 @@
+{
+  "schema": "holo-ci.v1",
+  "name": "lo",
+  "kind": "native-fork",
+  "tests": [
+    "node -e \"const fs=require('node:fs'); const l=JSON.parse(fs.readFileSync('holo-compiler-lockfile.json','utf8')); if(l.abiMagic!=='0x33564742'||l.casLayout!=='v11'||!fs.existsSync('src/lo_launcher.c')) process.exit(1)\""
+  ],
+  "docs": [
+    "README.md"
+  ],
+  "guards": {
+    "zeroGhost": true,
+    "zeroCasV1": true
+  }
+}
